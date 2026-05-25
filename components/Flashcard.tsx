@@ -14,9 +14,17 @@ type FlashcardItem = {
 type FlashcardProps = {
   items: FlashcardItem[];
   progressPrefix: string;
+  recallPrompt?: string;
 };
 
-export function Flashcard({ items, progressPrefix }: FlashcardProps) {
+const defaultRecallPrompt =
+  "Recall the signals, template shape, complexity, and how you would explain it out loud before revealing.";
+
+export function Flashcard({
+  items,
+  progressPrefix,
+  recallPrompt = defaultRecallPrompt,
+}: FlashcardProps) {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const { markCompleted, progress } = useProgress();
@@ -59,8 +67,7 @@ export function Flashcard({ items, progressPrefix }: FlashcardProps) {
               <div className="mt-6 text-sm font-medium leading-6 text-slate-700">{item.back}</div>
             ) : (
               <p className="mt-6 text-sm font-medium leading-6 text-slate-600">
-                Recall the signals, template shape, complexity, and how you would
-                explain it out loud before revealing.
+                {recallPrompt}
               </p>
             )}
           </div>

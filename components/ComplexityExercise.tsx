@@ -26,8 +26,8 @@ export function ComplexityExercise({ questions }: ComplexityExerciseProps) {
     recordQuizResult("Complexity Quiz", correct, [question.title]);
   }
 
-  function next() {
-    setIndex((current) => (current + 1) % questions.length);
+  function move(delta: number) {
+    setIndex((current) => (current + delta + questions.length) % questions.length);
     setTime("");
     setSpace("");
     setSubmitted(false);
@@ -101,7 +101,14 @@ export function ComplexityExercise({ questions }: ComplexityExerciseProps) {
           </button>
           <button
             type="button"
-            onClick={next}
+            onClick={() => move(-1)}
+            className="rounded-md border-2 border-line bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_3px_0_#d7e7df] transition hover:border-accent"
+          >
+            Previous question
+          </button>
+          <button
+            type="button"
+            onClick={() => move(1)}
             className="rounded-md border-2 border-line bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_3px_0_#d7e7df] transition hover:border-accent"
           >
             Next question

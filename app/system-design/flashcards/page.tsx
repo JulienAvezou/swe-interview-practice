@@ -29,7 +29,11 @@ export default function SystemDesignFlashcardsPage() {
         sidebarTitle="System design modes"
         items={systemDesignStudyNavItems}
       >
-        <Flashcard items={items} progressPrefix="system-concept" />
+        <Flashcard
+          items={items}
+          progressPrefix="system-concept"
+          recallPrompt="Recall what the concept means, when it matters, where it appears in a system design interview, and a concrete example before revealing."
+        />
       </GroupedStudyLayout>
     </SectionLayout>
   );

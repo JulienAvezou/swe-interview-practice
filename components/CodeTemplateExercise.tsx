@@ -47,8 +47,8 @@ export function CodeTemplateExercise({ templates }: CodeTemplateExerciseProps) {
     recordQuizResult("Code Template Fill-in", allCorrect, [template.pattern]);
   }
 
-  function next() {
-    setIndex((current) => (current + 1) % templates.length);
+  function move(delta: number) {
+    setIndex((current) => (current + delta + templates.length) % templates.length);
     setAnswers({});
     setSubmitted(false);
   }
@@ -125,7 +125,14 @@ export function CodeTemplateExercise({ templates }: CodeTemplateExerciseProps) {
           </button>
           <button
             type="button"
-            onClick={next}
+            onClick={() => move(-1)}
+            className="rounded-md border-2 border-line bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_3px_0_#d7e7df] transition hover:border-accent"
+          >
+            Previous template
+          </button>
+          <button
+            type="button"
+            onClick={() => move(1)}
             className="rounded-md border-2 border-line bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-[0_3px_0_#d7e7df] transition hover:border-accent"
           >
             Next template
