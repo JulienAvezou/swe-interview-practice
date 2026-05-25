@@ -31,4 +31,34 @@ export const explainBackPrompts: ExplainBackPrompt[] = [
     modelAnswer: "A cache stores a copy of data outside the source of truth. When the original data changes, the cached copy may become stale unless it is updated, evicted, or allowed to expire with a TTL.",
     checklist: ["Identifies source of truth vs copy", "Mentions stale data", "Mentions TTL, eviction, or update strategy"],
   },
+  {
+    id: "hash-map-vs-nested-loop",
+    prompt: "Explain why a hash map can improve Two Sum from O(n^2) to O(n).",
+    modelAnswer: "The nested-loop approach checks every pair. A hash map remembers numbers already seen, so for each value we only ask whether its complement exists. That makes one pass over the array with average constant-time lookups.",
+    checklist: ["Mentions complement lookup", "Mentions one pass", "Contrasts with checking every pair", "States O(n) average time"],
+  },
+  {
+    id: "topological-sort",
+    prompt: "Explain when a problem is asking for topological sort.",
+    modelAnswer: "Topological sort fits when items have prerequisites or directed dependencies and we need a valid order. If there is a cycle, no valid order exists because at least one item depends on itself indirectly.",
+    checklist: ["Mentions directed dependencies", "Mentions valid ordering", "Mentions cycle detection", "Gives prerequisite example"],
+  },
+  {
+    id: "sql-vs-nosql",
+    prompt: "Explain how you would choose SQL vs NoSQL in a system design interview.",
+    modelAnswer: "I would start from access patterns and correctness requirements. SQL is usually better for relational data, transactions, constraints, and joins. NoSQL can be better for flexible schema, high write volume, simple key-based access, and horizontal partitioning. The choice should connect to consistency, scale, and query needs.",
+    checklist: ["Mentions access patterns", "Mentions transactions or joins for SQL", "Mentions scale or flexible schema for NoSQL", "Avoids saying one is always better"],
+  },
+  {
+    id: "queue-benefits",
+    prompt: "Explain why queues are useful in system design.",
+    modelAnswer: "Queues decouple producers from workers. They keep slow or retryable work out of the request path, absorb traffic spikes, and let workers process jobs at their own rate. The tradeoffs are added latency, retry semantics, and duplicate handling.",
+    checklist: ["Mentions decoupling", "Mentions async or retryable work", "Mentions spike absorption", "Mentions duplicate or retry handling"],
+  },
+  {
+    id: "idempotency",
+    prompt: "Explain idempotency in plain English and why it matters.",
+    modelAnswer: "An idempotent operation can be retried without changing the final result beyond the first successful attempt. It matters because networks fail and clients retry. Idempotency keys help prevent duplicate payments, bookings, or side effects.",
+    checklist: ["Defines same final result after retries", "Mentions network failure or retries", "Mentions idempotency keys", "Gives payment or booking example"],
+  },
 ];
