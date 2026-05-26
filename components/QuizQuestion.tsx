@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { QuizQuestion as QuizQuestionType } from "@/data/types";
 import { useProgress } from "@/lib/progress";
-import { sameAnswers } from "@/lib/quizCore";
+import { sameAnswers, shuffleOptions } from "@/lib/quizCore";
 import { Card } from "./Card";
 
 type QuizQuestionProps = {
@@ -19,6 +19,10 @@ export function QuizQuestion({ questions, mode, multiSelect = true }: QuizQuesti
   const { recordQuizResult } = useProgress();
   const question = questions[index];
   const isCorrect = sameAnswers(selected, question.correctAnswers);
+  const options = useMemo(
+    () => shuffleOptions(question.options, `${mode}:${question.id}`),
+    [mode, question.id, question.options],
+  );
 
   function toggle(option: string) {
     if (submitted) return;
@@ -56,7 +60,7 @@ export function QuizQuestion({ questions, mode, multiSelect = true }: QuizQuesti
         </h2>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          {question.options.map((option) => {
+          {options.map((option) => {
             const checked = selected.includes(option);
             const correct = question.correctAnswers.includes(option);
             const resultStyle = submitted

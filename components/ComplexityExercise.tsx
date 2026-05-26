@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { ComplexityQuestion } from "@/data/types";
 import { useProgress } from "@/lib/progress";
+import { shuffleOptions } from "@/lib/quizCore";
 import { Card } from "./Card";
 
 const options = ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)"];
@@ -19,6 +20,14 @@ export function ComplexityExercise({ questions }: ComplexityExerciseProps) {
   const { recordQuizResult } = useProgress();
   const question = questions[index];
   const correct = time === question.timeAnswer && space === question.spaceAnswer;
+  const timeOptions = useMemo(
+    () => shuffleOptions(options, `${question.id}:time`),
+    [question.id],
+  );
+  const spaceOptions = useMemo(
+    () => shuffleOptions(options, `${question.id}:space`),
+    [question.id],
+  );
 
   function submit() {
     if (!time || !space || submitted) return;
@@ -66,13 +75,13 @@ export function ComplexityExercise({ questions }: ComplexityExerciseProps) {
           <div>
             <p className="mb-3 text-sm font-black text-slate-700">Time complexity</p>
             <div className="flex flex-wrap gap-2">
-              {options.map((option) => optionButton(option, time, setTime))}
+              {timeOptions.map((option) => optionButton(option, time, setTime))}
             </div>
           </div>
           <div>
             <p className="mb-3 text-sm font-black text-slate-700">Space complexity</p>
             <div className="flex flex-wrap gap-2">
-              {options.map((option) => optionButton(option, space, setSpace))}
+              {spaceOptions.map((option) => optionButton(option, space, setSpace))}
             </div>
           </div>
         </div>

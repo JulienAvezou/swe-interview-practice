@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { sameAnswers } from "../lib/quizCore.ts";
+import { sameAnswers, shuffleOptions } from "../lib/quizCore.ts";
 import { isBlankAnswerCorrect } from "../lib/codeTemplateCore.ts";
 
 test("sameAnswers accepts the same answers in any order", () => {
@@ -31,4 +31,13 @@ test("template blanks accept alternate normalized answers", () => {
     }),
     true,
   );
+});
+
+test("shuffleOptions keeps the same options while changing deterministic order", () => {
+  const options = ["Correct", "Distractor A", "Distractor B", "Distractor C"];
+  const shuffled = shuffleOptions(options, "system-design:fanout-write");
+
+  assert.deepEqual([...shuffled].sort(), [...options].sort());
+  assert.notDeepEqual(shuffled, options);
+  assert.deepEqual(shuffled, shuffleOptions(options, "system-design:fanout-write"));
 });
