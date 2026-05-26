@@ -4,19 +4,22 @@ import { SectionLayout } from "@/components/SectionLayout";
 const dsaModes = [
   {
     title: "Pattern Flashcards",
-    description: "Study core DS&A patterns with signals, templates, complexity, and voice-over explanations.",
+    description:
+      "Study core DS&A patterns with signals, templates, complexity, and voice-over explanations.",
     href: "/dsa/flashcards",
-    meta: "17 patterns",
+    meta: "Patterns",
   },
   {
     title: "Problem -> Pattern Quiz",
-    description: "See a problem prompt and choose the likely pattern or pattern combination.",
+    description:
+      "See a problem prompt and choose the likely pattern or pattern combination.",
     href: "/dsa/pattern-quiz",
     meta: "Multi-select",
   },
   {
     title: "Code Template Fill-in",
-    description: "Fill missing JavaScript syntax in common interview templates.",
+    description:
+      "Fill missing JavaScript syntax in common interview templates.",
     href: "/dsa/templates",
     meta: "JavaScript",
   },

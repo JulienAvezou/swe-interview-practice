@@ -4,19 +4,21 @@ import { SectionLayout } from "@/components/SectionLayout";
 const modes = [
   {
     title: "System Design Cheatsheets",
-    description: "Review system requirements, architecture, storage, caching, queues, bottlenecks, and talking points.",
+    description:
+      "Review system requirements, architecture, storage, caching, queues, bottlenecks, and talking points.",
     href: "/system-design/cheatsheets",
-    meta: "10 systems",
+    meta: "Systems",
   },
   {
     title: "System Design Flashcards",
     description: "Practice core distributed systems concepts in plain English.",
     href: "/system-design/flashcards",
-    meta: "20 concepts",
+    meta: "Concepts",
   },
   {
     title: "Tradeoff Quiz",
-    description: "Answer scenario questions about consistency, caching, queues, WebSockets, and scaling.",
+    description:
+      "Answer scenario questions about consistency, caching, queues, WebSockets, and scaling.",
     href: "/system-design/tradeoffs",
     meta: "Scenarios",
   },
