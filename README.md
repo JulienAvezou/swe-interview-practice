@@ -28,6 +28,12 @@ The app focuses on pattern recognition, retrieval practice, JavaScript template 
 
 No backend, auth, database, payments, or AI grading is included.
 
+<img width="1495" height="808" alt="Capture d’écran 2026-06-05 à 15 40 49" src="https://github.com/user-attachments/assets/1719e9ff-e7d1-4928-8a0e-b02980016d05" />
+<img width="1398" height="718" alt="Capture d’écran 2026-06-05 à 15 41 05" src="https://github.com/user-attachments/assets/306d5389-ec25-4071-a927-acb528cb0799" />
+<img width="1260" height="726" alt="Capture d’écran 2026-06-05 à 15 41 20" src="https://github.com/user-attachments/assets/78171884-dca4-44e2-a16b-0aceaedb3da1" />
+<img width="1255" height="701" alt="Capture d’écran 2026-06-05 à 15 41 34" src="https://github.com/user-attachments/assets/7cc83632-9248-45cf-ac2a-2202c73a937b" />
+
+
 ## Getting Started
 
 Install dependencies:
