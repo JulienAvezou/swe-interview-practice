@@ -2,7 +2,7 @@
 
 A local-first study app for software engineers preparing for coding and system design interviews.
 
-The app focuses on pattern recognition, retrieval practice, JavaScript template fluency, complexity analysis, and interview explanation practice. It is intentionally not a LeetCode clone.
+The app focuses on pattern recognition, retrieval practice, JavaScript template fluency, complexity analysis, and interview explanation practice. It emphasizes the core reusable shapes behind interview problems instead of completing thousands of problems without structure.
 
 ## Features
 
@@ -149,6 +149,14 @@ Current tests cover:
 - progress streak updates
 - duplicate card completion prevention
 - quiz accuracy and weak-area tracking
+
+## Contributing Content
+
+Contributions are welcome through pull requests.
+
+The easiest way to contribute is by adding new flashcards, quiz questions, code templates, cheatsheets, or explain-back prompts to the static data files in `data/`.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for content guidelines, file locations, examples, and the pull request checklist.
 
 ## Current Scope
 
